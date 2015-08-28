@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Validation</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="header">
+            <h2> User Signup Form</h2>
+            <input type="text" id="searchBar" onkeyup="filter()" placeholder="search">
+        </div>
+        <div id="content">
+            <p id="alert"></p>
+            <form id="signupForm" class="devise-form has-error" no-validate>
+                <div class="form-group">
+                    <label for="username">Username<span>*</span></label>
+                    <input type="text" id="username" class="formInput" name="username" onblur="checkInput(this)">
+                    <span class="help-block char-error">This field does not allow special characters and numbers</span>
+                    <span class="help-block required-error">*Required</span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password<span>*</span></label>
+                    <input type="password" id="password" class="formInput" name="password" onblur="checkInput(this)">
+                    <span class="help-block required-error">*Required</span>
+                    <span class="help-block min-error" minlength="8">Field should be minimum 8 characters</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email<span>*</span></label>
+                    <input type="email" id="email" class="formInput" name="email" onblur="checkInput(this)">
+                    <span class="help-block email-error">This should be an email</span>
+                    <span class="help-block required-error">*Required</span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact No.</label>
+                    <input type="phone" id="phone" class="formInput" name="phone" onblur="checkInput(this)">
+                    <span class="help-block number-error">This should be a number</span>
+                    <span class="help-block length-error">This can only be of 10 digits</span>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date of Birth<span>*</span></label>
+                    <input type="dateOfBirth" id="date" class="formInput" name="date" onblur="checkInput(this)" placeholder="dd/mm/yyyy">
+                    <span class="help-block date-error">This is not a valid date format</span>
+                    <span class="help-block required-error">*Required</span>
+                </div>
+                <button id="submitButton" type="submit">Submit</button>
+            </form>
+            <table id="formDataTable" class="draggable">
+                <thead style="background-color: #CAC5C5;">
+                    <tr>
+                        <th class="username" ondblclick="sort_table(people, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;asc4 = 1; asc5 = 1;">Username</th>
+                        <th class="password" ondblclick="sort_table(people, 1, asc2); asc1 *= -1; asc2 = 1; asc3 = 1;asc4 = 1; asc5 = 1;">Password</th>
+                        <th class="email" ondblclick="sort_table(people, 2, asc3); asc1 *= -1; asc2 = 1; asc3 = 1;asc4 = 1; asc5 = 1;">Email</th>
+                        <th class="phone" ondblclick="sort_table(people, 3, asc4); asc1 *= -1; asc2 = 1; asc3 = 1;asc4 = 1; asc5 = 1;">Contact No.</th>
+                        <th class="date" ondblclick="sort_table(people, 4, asc5); asc1 *= -1; asc2 = 1; asc3 = 1;asc4 = 1; asc5 = 1;">Date of Birth</th>
+                    </tr>
+                </thead>
+                <tbody id="people">
+                </tbody>
+            </table>
+        </div>
+        <script src="jquery.min.js"></script>
+        <script src="jquery.tablednd.0.8.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <script src="dragtable.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

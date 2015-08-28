@@ -1,0 +1,92 @@
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373
+}
+.form-group .help-block {
+	display: none;
+}
+.form-group.has-error .help-block {
+	margin: 0px;
+    font-size: 12px;
+    padding-left: 9px;
+    font-weight: 500;
+    color: #F05653 !important;
+}
+}
+table, th, td{
+	border: 1px solid black;
+}
+.highlight{
+	background-color: #8080BB;
+    font-size: 19px;
+}
+label {
+	padding: 10px;
+}
+form{
+	width: 300px;
+   background-color: rgba(199, 199, 199, 0.35);
+    padding: 10px;
+    border: 1px solid black;
+}
+.form-group{
+	margin-bottom: 10px;
+}
+.formInput{
+	position: absolute;
+	left: 140px;
+}
+#submitButton{
+	background-color: #2BBD2B;
+    padding: 6px;
+    font-size: medium;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 109px;
+    border: 1px solid #20A020;
+    border-radius: 4px;
+    color: white;
+    font-family: sans-serif;
+}
+.error-heading{
+	color: #D60B07 !important;
+	font-family: sans-serif;
+    font-size: 15px;
+}
+.success-heading{
+	color: #1DA91D !important;
+	font-family: sans-serif;
+	font-size: 18px;
+}
+#header{
+	position: fixed;
+	z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #404092;
+    height: 53px;
+    color: white;
+    font-family: sans-serif;
+}
+#content{
+	margin-top: 100px;
+}
+#searchBar{
+	margin-top: 27px;
+    margin-left: 900px;
+}
+h2{
+	float:left;
+	margin-left:25px
+}
+#formDataTable{
+	 background-color: rgba(212, 211, 211, 0.25);
+    margin-top: 35px;
+     border: 1px solid #CAC5C5;
+}
+thead{
+	background-color: #C1BEBE;
+}
