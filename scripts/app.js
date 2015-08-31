@@ -6,10 +6,9 @@ $(document).ready(function() {
 });
 // function which fetches data from localStorage and displays it during page load
 var addRows = function() {
-    if (localStorage.length == 0) {
-        $('table').css("display", "none");
-    } else {
+    if (localStorage.length != 0) {
         $('table').css("display", "table");
+    }
         for (var i = 0, len = localStorage.length; i < len; ++i) {
             var data = '';
             var data = JSON.parse(localStorage.getItem(localStorage.key(i)));

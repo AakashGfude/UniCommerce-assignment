@@ -75,17 +75,18 @@ form{
 	margin-top: 100px;
 }
 #searchBar{
-	margin-top: 27px;
-    margin-left: 900px;
+	margin-top: 19px;
+    position: absolute;
+    margin-left: 661px;
 }
 h2{
 	float:left;
 	margin-left:25px
 }
 #formDataTable{
-	 background-color: rgba(212, 211, 211, 0.25);
+	background-color: rgba(212, 211, 211, 0.25);
     margin-top: 35px;
-     border: 1px solid #CAC5C5;
+    border: 1px solid #CAC5C5;
 }
 thead{
 	background-color: #C1BEBE;
