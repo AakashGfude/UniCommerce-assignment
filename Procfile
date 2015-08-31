@@ -1,1 +1,0 @@
-web: go-websocket-unicommerce-assignment-demo-web
