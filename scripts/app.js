@@ -2,7 +2,6 @@ $(document).ready(function() {
     $("#formDataTable").tableDnD({
         onDragClass: "highlight",
     });
-    addRows();
 });
 // function which fetches data from localStorage and displays it during page load
 var addRows = function() {
@@ -23,15 +22,16 @@ var addRows = function() {
         }
     }
 };
+addRows();
 // filter function to highlight the matched coloumn
 var filter = function() {
-    var value = $('#searchBar').val();
+    var value = $('#searchBar').val().toLowerCase();
     var tr = document.querySelectorAll("tbody tr");
     for (var i = 0; i < tr.length; i++) {
         $(tr[i]).removeClass('highlight');
         var td = tr[i].querySelectorAll("td");
         for (var j = 0; j < td.length; j++) {
-            if (td[j].innerHTML == value) {
+            if (td[j].innerHTML.toLowerCase() == value) {
                 $(tr[i]).addClass('highlight');
             }
         }
@@ -73,7 +73,7 @@ var checkInput = function(e) {
     var content = $this.val();
     switch (type) {
         case "email":
-            var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
             var is_email = re.test(content);
             if (is_email && content) {
                 $this.closest(".devise-form").removeClass('has-error');
@@ -214,6 +214,9 @@ $('#submitButton').click(function(e) {
     e.preventDefault();
     if ($('.devise-form').hasClass('has-error')) {
         $('#alert').text('*Error submitting the form').removeClass('success-heading').addClass('error-heading');
+        window.setTimeout(function(){
+                    $('#alert').text('');
+                },2000);
     } else {
         var user = {};
         user.username = $('#username').val();
@@ -224,6 +227,9 @@ $('#submitButton').click(function(e) {
         for (var i in user) {
             if (user[i] == '' && i != phone) {
                 $('#alert').text('Please fill the necessary fields').removeClass('success-heading').addClass('error-heading');
+                window.setTimeout(function(){
+                    $('#alert').text('');
+                },2000);
                 return;
             } else {
                 $('#alert').text('');
@@ -233,11 +239,17 @@ $('#submitButton').click(function(e) {
         for (var i = 0, len = localStorage.length; i < len; ++i) {
             if (user.email === JSON.parse(localStorage.getItem(localStorage.key(i)))["email"]) {
                 $('#alert').text('Email Address is already taken').removeClass('success-heading').addClass('error-heading');
+                window.setTimeout(function(){
+                    $('#alert').text('');
+                },2000);
                 notUnique++;
             }
         }
         if (!notUnique) {
             $('#alert').text("You have succesfully submitted the data").removeClass('error-heading').addClass('success-heading');
+            window.setTimeout(function(){
+                    $('#alert').text('');
+                },2000);
             localStorage.setItem(user.email, JSON.stringify(user));
             var obj = localStorage.getItem(user.email);
             for (var i = 0, len = localStorage.length; i < len; ++i) {}
